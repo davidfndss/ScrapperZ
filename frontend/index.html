@@ -1,13 +1,27 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrapperz</title>
+
+  <!-- Bootstrap Icons-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <span id="title-span">O Scrapperz chegou <i class="bi bi-arrow-right"></i></span>
+    <h1>Buscar na amazon</h1>
+   
+    <div id="search-div">
+      <input type="text" id="search-input" placeholder="Digite o que você quer buscar..." />
+      <button id="search-btn"><i class="bi bi-search"></i></button>
+    </div>
+    
+    <div id="results"></div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
 </html>

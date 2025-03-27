@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root { 
+    --color-1: #101115;
+    --color-2: #323739;
+    --color-3: #840A4A;
+    --color-4: #ac075c;
+}
+
+.inter-tight-inter {
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Inter tight", Arial, sans-serif;
+    background-color: #f4f4f9;
+    padding: 20px;
+    background-color: #101115;
+    color: white;
+  }
+  
+  .container {
+    max-width: 500px;
+    margin: 10vh auto 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: start;
+    gap: 4px;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 38px;
+  }
+
+  #search-div {
+    width: 100%;
+    display: flex;
+    gap: 4px;
+  }
+  
+  #search-input {
+    width: 100%;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    border-radius: 30px;
+    background-color: var(--color-1);
+    border: #686868 solid 1px;
+    color: white;
+    font-size: 18px;
+  }
+  
+  #search-btn {
+    padding: 8px 18px;
+    margin-top: 10px;
+    background-color: #840A4A;
+    transition: 0.3s ease;
+    border-radius: 30px;
+    color: white;
+    border: none;
+    font-size: 22px;
+    font-weight: 700;
+    font-style: italic;
+    cursor: pointer;
+  }
+  
+  #search-btn:hover {
+    background-color: var(--color-4);
+  }
+  
+  #results {
+    margin-top: 20px;
+  }
+
+  #title-span {
+    padding: 6px 20px;
+    background-color: var(--color-2);
+    border: var(--color-2) 1px solid;
+    border-radius: 30px;
+  }
+
