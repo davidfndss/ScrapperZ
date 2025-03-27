@@ -1,9 +1,11 @@
 import express from 'express'
 import axios from 'axios'
 import { JSDOM } from 'jsdom'
+import cors from "cors";
 
 const app = express()
 const PORT = 3333
+app.use(cors());
 
 app.get('/ping', (req, res) => {
   res.json('pong!')

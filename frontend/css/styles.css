@@ -12,7 +12,7 @@
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-  }
+}
 
 * {
     margin: 0;
@@ -20,15 +20,15 @@
     box-sizing: border-box;
   }
   
-  body {
+body {
     font-family: "Inter tight", Arial, sans-serif;
     background-color: #f4f4f9;
     padding: 20px;
     background-color: #101115;
     color: white;
-  }
-  
-  .container {
+}
+
+.container {
     max-width: 500px;
     margin: 10vh auto 0 auto;
     padding: 20px;
@@ -39,20 +39,20 @@
     justify-items: center;
     align-items: start;
     gap: 4px;
-  }
-  
-  h1 {
+}
+
+h1 {
     text-align: center;
     font-size: 38px;
-  }
+}
 
-  #search-div {
+#search-div {
     width: 100%;
     display: flex;
     gap: 4px;
-  }
-  
-  #search-input {
+}
+
+#search-input {
     width: 100%;
     padding: 10px 20px;
     margin-top: 10px;
@@ -64,9 +64,9 @@
     border: #686868 solid 1px;
     color: white;
     font-size: 18px;
-  }
-  
-  #search-btn {
+}
+
+#search-btn {
     padding: 8px 18px;
     margin-top: 10px;
     background-color: #840A4A;
@@ -78,20 +78,70 @@
     font-weight: 700;
     font-style: italic;
     cursor: pointer;
-  }
-  
-  #search-btn:hover {
-    background-color: var(--color-4);
-  }
-  
-  #results {
-    margin-top: 20px;
-  }
+}
 
-  #title-span {
+#search-btn:hover {
+    background-color: var(--color-4);
+}
+
+#results {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    width: 100%;
+    gap: 12px; 
+}
+
+#title-span {
     padding: 6px 20px;
     background-color: var(--color-2);
     border: var(--color-2) 1px solid;
     border-radius: 30px;
-  }
+}
 
+.result {
+    background-color: var(--color-2);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    text-align: center;
+    max-width: 230px;
+    cursor: pointer;
+}
+
+.result:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.result h3 {
+    text-align: start;
+    font-size: 20px;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.result p {
+    margin-top: 2px;
+    text-align: start;
+    font-size: 16px;
+    color: #d3d3d3;
+}
+
+.result img {
+    width: 100%;
+    margin: 0 auto 10px auto;
+    height: auto;
+    border-radius: 8px;
+}
+
+.bi-amazon {
+    margin-top: 8px;
+    font-size: 38px;
+    color: var(--color-2);   
+}
