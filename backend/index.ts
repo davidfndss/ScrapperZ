@@ -25,7 +25,12 @@ app.get('/api/scrape', async (req, res) => {
     const url = `https://www.amazon.com/s?k=${keyword}`
   
     try {
-      const { data } = await axios.get(url)
+      const { data } = await axios.get(url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+          'Accept-Language': 'en-US,en;q=0.9',
+        },
+      })
       const dom = new JSDOM(data)
       const products: IProduct[] = []
   
@@ -44,7 +49,13 @@ app.get('/api/scrape', async (req, res) => {
   
       res.json(products)
     } catch (error) {
-      res.status(500).send('Erro ao buscar produtos')
+      console.error(error)
+
+      if (axios.isAxiosError(error) && error.response && error.response.status === 503) {
+        res.status(503).send('O servidor da Amazon está temporariamente indisponível. Tente novamente mais tarde.')
+      } else {
+        res.status(500).send('Erro ao buscar produtos')
+      }
     }
 })
 
