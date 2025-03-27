@@ -7,7 +7,7 @@ document.getElementById('search-btn').addEventListener('click', async function (
         }
 
         try {
-            const response = await fetch(`http://localhost:3333/api/scrape?keyword=${query}`, {
+            const response = await fetch(`http://backend:3333/api/scrape?keyword=${query}`, {
             method: 'GET',
             });
 

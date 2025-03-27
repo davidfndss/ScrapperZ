@@ -1,0 +1,32 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "3333:3333"
+    environment:
+      - NODE_ENV=production
+    command:
+      - sh
+      - -c
+      - "echo 'API running on: http://localhost:3333 🤖' && bun run index.ts"
+    networks:
+      - scrapperz-network
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    command:
+      - sh
+      - -c
+      - "echo 'Frontend running on: http://localhost:5173 ⚡' && npm run preview -- --host 0.0.0.0"
+    networks:
+      - scrapperz-network
+
+networks:
+  scrapperz-network:
+    driver: bridge
