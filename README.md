@@ -17,7 +17,7 @@ Antes de rodar o projeto, você precisará de:
 - [Node.js](https://nodejs.org/en/download)
 - [Bun](https://bun.sh/)
 
-## Como Configurar e Rodar o Projeto com Docker (Usando Docker Compose)
+# 🐋 Como Rodar o Projeto com Docker (Docker Compose)
 
 ### Passo 1: Clonar o Repositório
 
@@ -27,6 +27,8 @@ Primeiro Abra o terminal e, clone o repositório para sua máquina local:
 git clone https://github.com/davidfndss/scrapperz.git
 cd scrapperz
 ```
+
+> É necessário ter o git instalado para utilizar o `git clone`.
 
 ### Passo 2: Construir e Rodar o Projeto com Docker
 Dentro do diretório raiz do projeto, execute o seguinte comando para construir e iniciar os containers:
@@ -54,7 +56,7 @@ docker-compose down
 <br>
 <br>
 
-## Como Configurar o Projeto Manualmente (Sem Docker)
+## 🔧 Como Configurar o Projeto Manualmente (Sem Docker)
 Se você não deseja usar Docker, pode configurar o projeto manualmente usando Node.js e Bun. Siga os passos abaixo:
 
 #### Passo 1: Clonar o Repositório
@@ -113,13 +115,58 @@ O servidor do frontend estará rodando em `http://localhost:5173`.
 > Importante: o backend e o frontend devem rodar ao mesmo tempo. Para isso, é necessário ter dois terminais separados — um para rodar o backend e outro para o rodar frontend.
 
 ### Passo 5: Acessar o Projeto
-Abra o navegador e acesse o frontend em `http://localhost:5173`. Insira um termo de busca (por exemplo, "nike") e clique em Buscar. Os resultados dos produtos serão exibidos na página.
+Abra o navegador e acesse o frontend em `http://localhost:5173`. Insira um termo de busca (por exemplo, "nike") no campo de pesquisa e clique em buscar. (Botão com a Lupa) <br> Os resultados dos produtos serão exibidos na página.
 
 ### Passo 6: Parar o Backend e Frontend
-Para parar o servidor do backend e frontend, basta interromper os processos no terminal com o atalho `Ctrl + C`.
+Para parar o servidor do backend e frontend, basta interromper os processos em cada terminal com o atalho `Ctrl + C`.
 
+<br>
+<br>
 
-### Tecnologias utilizadas no projeto:
+## Consumo da API
+
+A API só tem um endpoint, que faz o scraping dos resultados de uma pesquisa no site da Amazon.
+
+#### Endpoint
+```
+GET /api/scrape
+```
+
+#### Query Params (Parâmetros de Pesquisa)
+
+| Parâmetro | Tipo   | Descrição           |
+|-----------|--------|---------------------|
+| keyword   | string | Termo para pesquisa |
+
+#### Exemplo de Requisição HTTP
+```
+http://localhost:3333/api/scrape?keyword=adidas
+```
+
+#### Resposta
+Retorna um Objeto JSON Contendo os resultados diretamente do site da Amazon.
+
+#### Exemplo de Resposta
+```json
+[
+  {
+    "title": "Men's Lite Racer Adapt 7.0 Sneaker",
+    "rating": "4.4 out of 5 stars",
+    "reviews": "2,404",
+    "imageUrl": "https://m.media-amazon.com/images/I/71xxWk0pJBL._AC_UL320_.jpg",
+    "badge": "Overall Pick",
+  },
+  {
+    "title": "Women's Grand Court 2.0 Shoes",
+    "rating": "4.6 out of 5 stars",
+    "reviews": "5,008",
+    "imageUrl": "https://m.media-amazon.com/images/I/419I5iQvvtL._AC_UL320_.jpg",
+    "badge": "Best Seller",
+  }
+]
+```
+
+## Tecnologias utilizadas no projeto:
 ![Bun](https://img.shields.io/badge/bun-330F63?style=for-the-badge&logo=bun&logoColor=white)&nbsp;
 ![Vite](https://img.shields.io/badge/vite-%23ED8B00?style=for-the-badge&logo=vite&logoColor=white)&nbsp;
 ![Docker](https://img.shields.io/badge/docker-darkblue?style=for-the-badge&logo=docker&logoColor=white)&nbsp;
