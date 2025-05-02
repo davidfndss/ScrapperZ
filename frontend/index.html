@@ -19,6 +19,10 @@
       <input type="text" id="search-input" placeholder="Digite o que você quer buscar..." autocomplete="off"/>
       <button id="search-btn"><i class="bi bi-search"></i></button>
     </div>
+
+    <div id="sugestions">
+
+    </div>
     
     <div id="errorMessageDiv" class="hide">
       <i class="bi bi-exclamation-circle-fill"></i>
@@ -29,8 +33,13 @@
       <div class="spinner"></div>
     </div>
 
+    <div class="results-data">
+      <h3 class="results-query-title"></h3>
+      <span class="results-query-amount"></span>
+    </div>
     <div id="results"></div>
   </div>
   <script type="module" src="/js/main.js"></script>
+  <script type="module" src="/js/sugestions.js"></script>
 </body>
 </html>

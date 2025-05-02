@@ -8,17 +8,29 @@ const loadingContainer = document.getElementById('loading-container');
 function clearResultsContainer() {
     errorMessageDiv.classList.add('hide');
     resultsContainer.innerHTML = '';
+    document.getElementById('sugestions').classList.add('hide');
+    document.querySelector('.results-data').style.display = 'none';
 }
 
 // Show error message to user
 function showErrorMessage(message) {
     document.getElementById("errorMessageSpan").innerText = message;
     errorMessageDiv.classList.remove("hide");
+    document.getElementById('sugestions').classList.remove('hide');
+    document.querySelector('.results-data').style.display = 'none'
 }
 
 // Add loading visibility toggle
 function loading(bool) {
+    document.getElementById('sugestions').style.display = bool ? 'none' : 'flex';
     bool ? loadingContainer.style.display = 'flex' : loadingContainer.style.display = 'none';
+}
+
+function setResultsQueryData(length) {
+    const keyword = document.getElementById('search-input').value.trim();
+    document.querySelector('.results-data').style.display = 'flex';
+    document.querySelector('.results-query-title').innerText = "Busca por " + keyword;
+    document.querySelector('.results-query-amount').innerText = length + " Resultados";
 }
 
 // Handle search button click
@@ -71,6 +83,8 @@ function displayResults(data) {
 
             resultsContainer.appendChild(resultDiv);
         });
+
+        setResultsQueryData(data.length);
     } else {
         resultsContainer.innerHTML = '<p>Nenhum resultado encontrado.</p>';
     }
