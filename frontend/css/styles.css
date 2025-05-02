@@ -1,12 +1,21 @@
+/* ===== Import Fonts ===== */
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
 
-:root { 
+/* ===== Color Variables ===== */
+:root {
     --color-1: #101115;
     --color-2: #323739;
     --color-3: #840A4A;
     --color-4: #ac075c;
+    --color-5: #bd0019;
+    --color-6: #ff6a7e;
+    --color-7: #FF5630;
+    --color-8: #453234;
+    --color-9: #191a1f;
+    --color-10: #cfa51b;
 }
 
+/* ===== Font Utility Class ===== */
 .inter-tight-inter {
     font-family: "Inter Tight", sans-serif;
     font-optical-sizing: auto;
@@ -14,39 +23,40 @@
     font-style: normal;
 }
 
+/* ===== Reset & Base Styles ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-body {
-    font-family: "Inter tight", Arial, sans-serif;
-    background-color: #f4f4f9;
-    padding: 20px;
-    background-color: #101115;
-    color: white;
 }
 
+body {
+    font-family: "Inter Tight", Arial, sans-serif;
+    background-color: var(--color-1);
+    color: white;
+    padding: 20px;
+}
+
+/* ===== Container ===== */
 .container {
     max-width: 500px;
     margin: 10vh auto 0 auto;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    justify-items: center;
-    align-items: start;
+    align-items: flex-start;
     gap: 4px;
 }
 
+/* ===== Header ===== */
 h1 {
     text-align: center;
     font-size: 38px;
     margin-top: 2px;
 }
 
+/* ===== Search Area ===== */
 #search-div {
     width: 100%;
     display: flex;
@@ -57,12 +67,9 @@ h1 {
     width: 100%;
     padding: 10px 20px;
     margin-top: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
+    border: 1px solid #686868;
     border-radius: 30px;
     background-color: var(--color-1);
-    border: #686868 solid 1px;
     color: white;
     font-size: 18px;
 }
@@ -70,7 +77,7 @@ h1 {
 #search-btn {
     padding: 8px 18px;
     margin-top: 10px;
-    background-color: #840A4A;
+    background-color: var(--color-3);
     transition: 0.3s ease;
     border-radius: 30px;
     color: white;
@@ -85,23 +92,18 @@ h1 {
     background-color: var(--color-4);
 }
 
+/* ===== Results Grid ===== */
 #results {
     margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     width: 100%;
-    gap: 12px; 
+    gap: 12px;
 }
 
-#title-span {
-    padding: 6px 20px;
-    background-color: var(--color-2);
-    border: var(--color-2) 1px solid;
-    border-radius: 30px;
-}
-
+/* ===== Result Card ===== */
 .result {
-    background-color: var(--color-2);
+    background-color: var(--color-9);
     border-radius: 12px;
     padding: 15px;
     margin-bottom: 15px;
@@ -109,7 +111,7 @@ h1 {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     text-align: center;
     max-width: 230px;
     cursor: pointer;
@@ -128,24 +130,115 @@ h1 {
     margin-bottom: 8px;
 }
 
-.result p {
-    margin-top: 2px;
-    text-align: start;
-    font-size: 16px;
-    max-width: 200px;
-    color: #d3d3d3;
+.result div {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    max-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px auto;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .result img {
     width: 100%;
-    max-height: 350px;
-    margin: 0 auto 10px auto;
     height: auto;
-    border-radius: 8px;
+    max-height: 250px;
 }
 
+/* ===== Icons and Ratings ===== */
 .bi-amazon {
     margin-top: 8px;
     font-size: 38px;
     color: var(--color-2);   
+}
+
+.bi-star-fill,
+.bi-star-half {
+    color: var(--color-10);
+}
+
+.rating {
+    color: gray;
+    margin-bottom: 10px;
+}
+
+/* ===== Tags and Errors ===== */
+#title-span {
+    padding: 6px 20px;
+    background-color: var(--color-9);
+    border: 1px solid var(--color-2);
+    border-radius: 30px;
+}
+
+.badge {
+    margin-top: 10px;
+    padding: 2px 20px;
+    background-color: var(--color-3);
+    border-radius: 30px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#errorMessageDiv {
+    padding: 10px 20px;
+    background-color: var(--color-9);
+    color: var(--color-4);
+    border-radius: 10px;
+    margin-top: 15px;
+    border: 1px solid var(--color-2);
+}
+
+#errorMessageSpan {
+    color: gray;
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+/* ===== Utility ===== */
+.hide {
+    display: none;
+}
+
+/* ===== Loading Spinner ===== */
+#loading-container {
+    display: none;
+    width: 100%;
+    margin-top: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid;
+    border-color: var(--color-3);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== Media Queries ===== */
+@media (min-width: 1000px) {
+    .container {
+        max-width: 750px;
+    }
+
+    #results {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
